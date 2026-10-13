@@ -49,3 +49,16 @@ test('a slower earlier submission cannot replace a newer result', async () => {
   assert.equal(get('answer').textContent, 'New answer');
   assert.equal(get('order-cards').children.length, 1);
 });
+
+test('editing CSV during validation prevents a stale response from enabling export', async () => {
+  const {get, pending} = app();
+  get('csv-input').value = 'sku,quantity,unit_price\nKITE-01,1,1.00';
+  const request = get('validate-csv').handlers.click();
+  get('csv-input').value = 'sku,quantity,unit_price\nKITE-01,0,1.00';
+  get('csv-input').handlers.input();
+  pending[0]({valid_rows: 1, invalid_rows: 0, valid_subtotal: '1.00', rows: [], export_ready: true});
+  await request;
+  assert.equal(get('export-quote').disabled, true);
+  assert.equal(get('quote-total').textContent, '—');
+  assert.equal(get('quote-status').textContent, 'Input changed — validate again');
+});
