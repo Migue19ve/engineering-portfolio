@@ -2,7 +2,7 @@
 
 ## Source and purpose
 
-New original project: `Migue19ve/engineering-portfolio`. Task branch: `codex/public-portfolio`. Intended default branch: `main`. All business fixtures are invented; no source history or files were copied from another project.
+New original project: `Migue19ve/engineering-portfolio`. Current task branch: `codex/experience-profile`; default branch: `main`. Original demo implementation was merged in PR #1. All business fixtures are invented; no source history or files were copied from another project.
 
 ## Current verification
 
@@ -14,7 +14,7 @@ New original project: `Migue19ve/engineering-portfolio`. Task branch: `codex/pub
 
 ## Publication
 
-Destination ownership and repository name verified as `Migue19ve/engineering-portfolio`. Final push, remote HEAD, and GitHub Actions checks are pending. The app runs locally; no public server deployment is planned.
+Destination ownership and repository name verified as `Migue19ve/engineering-portfolio`. PR #1 was merged after passing CI. The current branch expands the personal profile with eight high-level experience summaries. All 28 automated checks pass; desktop and 390 px mobile layouts were inspected, with no horizontal overflow. Publication of this expansion is pending. The app runs locally; no public server deployment is planned.
 
 ## Future applications
 
