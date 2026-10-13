@@ -6,6 +6,38 @@ This is my public engineering portfolio: **three original, runnable demonstratio
 
 [Professional profile](https://www.linkedin.com/in/miguelven/) · [Architecture & tradeoffs](docs/ARCHITECTURE.md) · [Use in applications](docs/APPLICATIONS.md)
 
+## About me
+
+I'm Miguel Moreno, a software engineer with a mechanical-engineering background. I build across the interface, API, database, and operational workflow: React and Next.js products, Python and Node.js services, cloud integrations, and practical AI tools. My experience includes startup full-stack development, Python services for AI workflows, and internal applications connecting scheduling, reporting, payments, and legacy systems.
+
+I like work where understanding the business process matters as much as choosing the framework. I can discuss a problem with the person doing the work, turn it into a usable application, and investigate what happens when the inputs or network stop behaving ideally. I work in English and Spanish and use AI development tools with tests, review, and explicit verification boundaries.
+
+**Available for remote full-time or contractor engineering roles.** My strongest fit is full-stack product engineering, applied AI integrations, and cloud/business automation.
+
+## Selected experience
+
+These are high-level summaries of my broader work. The source code and screenshots in this repository belong only to the new synthetic demonstrations below.
+
+| Area | Work I've done | Relevant capabilities |
+| --- | --- | --- |
+| Scheduling and cloud integrations | Connected calendars, scheduling APIs, operational records, and notifications; handled renewal, retries, duplicates, and state reconciliation | Python, Azure Functions, Microsoft Graph, webhooks |
+| Field operations | Built inspection, work-order, scheduling, and reporting workflows with offline storage, draft recovery, and synchronization | React, IndexedDB, Node.js, SQL, PDF reports |
+| Business intake and dashboards | Connected forms, documents, email, chat, and operational data so users can work from a structured record | FastAPI, TypeScript, Airtable, Teams |
+| Payments and invoicing | Integrated payment services and chat-based invoice workflows with structured inputs and operator feedback | Stripe, REST APIs, adaptive cards |
+| Manufacturing systems | Extended a legacy ERP through macros, SQL queries, and reporting for quotes, materials, procurement, and production | ERP integration, SQL, engineering workflows |
+| Document processing | Extracted PDF annotations with page/section context and generated structured reports and addendums | Python, PyMuPDF, Streamlit, DOCX/PDF |
+| AI and data tooling | Built model-backed workflows and contact-enrichment tools with source provenance, confidence signals, and human review; explored local inference separately | Model integration, tool interfaces, data validation; MLX experiments |
+| Product applications | Built live league standings with explicit tie-breaking rules and administrative controls; worked on interview workflows with recovery and reporting | Next.js, Supabase, realtime, browser media, tests |
+
+I studied Mechanical Engineering at Metropolitan University of Caracas (2020–2025) and software development through freeCodeCamp (2019–2023). My mechanical background is particularly useful when software needs to represent physical processes and operational constraints.
+
+## How I work
+
+- **Understand the workflow:** clarify who uses the result, what must remain correct, and which failure cases matter.
+- **Own the complete path:** interface, API, data model, cloud configuration, and debugging evidence.
+- **Make results reviewable:** focused tests, understandable traces, source-backed answers, and clear limitations.
+- **Protect the underlying work:** discuss architecture and decisions without sharing client implementations or private records.
+
 ## Start with the work
 
 | Demonstration | What to try | What it shows |
