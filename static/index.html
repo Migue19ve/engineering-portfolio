@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Miguel Moreno's original engineering demonstrations. Fictional data, working Python services, and transparent tradeoffs.">
+  <title>Miguel Moreno — Engineering in practice</title>
+  <link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#workspace">Skip to demos</a>
+<header class="topbar"><a class="identity" href="/" aria-label="Miguel Moreno home"><span class="monogram">mm<span>.</span></span><span>Miguel Moreno<small>SOFTWARE · AUTOMATION · AI</small></span></a><span class="local"><i></i> LOCAL DEMO ENVIRONMENT</span><a class="profile" href="https://www.linkedin.com/in/miguelven/" target="_blank" rel="noreferrer">LinkedIn ↗</a></header>
+<main>
+<section class="intro"><div class="intro-copy"><p class="eyebrow">SELECTED ENGINEERING DEMOS / 01—03</p><h1>Messy inputs.<br><span>Reliable outcomes.</span></h1><p class="lead">I build the software between business operations and the people who rely on them. Explore three working examples of how I approach the details.</p></div><aside class="intro-note"><span class="note-icon">↗</span><p>Built to be explored.</p><small>Original demo code. Entirely fictional records. No client systems or production data.</small><div class="stack"><span>Python</span><span>SQLite</span><span>JavaScript</span></div></aside></section>
+<nav class="demo-tabs" aria-label="Engineering demonstrations">
+<button class="demo-tab active" data-demo="events" aria-pressed="true"><span class="tab-num">01</span><span>Reliable integrations<small>Retries · replay protection · versioning</small></span><span class="tab-arrow">↗</span></button>
+<button class="demo-tab" data-demo="quote" aria-pressed="false"><span class="tab-num">02</span><span>Data to decisions<small>Validation · decimal totals · export</small></span><span class="tab-arrow">↗</span></button>
+<button class="demo-tab" data-demo="assistant" aria-pressed="false"><span class="tab-num">03</span><span>Transparent assistant<small>Read-only tools · traceable answers</small></span><span class="tab-arrow">↗</span></button>
+</nav>
+<div id="workspace" tabindex="-1">
+<section id="events" class="demo-panel" aria-labelledby="events-title">
+<div class="section-heading"><div><p class="eyebrow">01 / EVENT PROCESSING</p><h2 id="events-title">One record. Seven deliveries.</h2><p>Replay, reorder, and fail a delivery. Keep the final state correct.</p></div><button id="run-events" class="primary">Run fault scenario <span>→</span></button></div>
+<div class="metrics"><div><small>DELIVERY ATTEMPTS</small><strong id="event-deliveries">—</strong><span>Including a retry and a replay</span></div><div><small>ACCEPTED WRITES</small><strong id="event-writes">—</strong><span>Only valid state transitions</span></div><div><small>FINAL REVISION</small><strong id="event-revision">—</strong><span id="event-state">Ready to run</span></div></div>
+<div class="event-grid"><div class="card"><div class="card-heading"><h3>Delivery trace</h3><span class="subtle">Sequential simulation</span></div><div id="event-log" class="event-log" aria-live="polite"><div class="empty"><span>↻</span><h3>Make the failures visible.</h3><p>Run the scenario to inspect every delivery and its effect on the record.</p></div></div></div><aside class="card explainer"><p class="eyebrow">THE DESIGN DECISIONS</p><h3>Trust the state.<br> Expect the retry.</h3><ol><li><b>Identify each delivery</b><span>A repeated event ID cannot apply the same change twice.</span></li><li><b>Check the revision</b><span>An old writer cannot overwrite a newer accepted state.</span></li><li><b>Acknowledge after success</b><span>A temporary failure leaves the event available to retry.</span></li></ol><p class="limitation">Scope: an in-memory SQLite transaction demo. This is not a distributed load test or a cloud deployment.</p></aside></div>
+</section>
+<section id="quote" class="demo-panel" aria-labelledby="quote-title" hidden>
+<div class="section-heading"><div><p class="eyebrow">02 / OPERATIONS AUTOMATION</p><h2 id="quote-title">A spreadsheet is just the start.</h2><p>Catch bad rows before they become downstream work.</p></div><span class="pill">FICTIONAL CATALOG · USD</span></div>
+<div class="quote-grid"><div class="card"><div class="card-heading"><h3>Input / CSV</h3><button id="load-clean" class="text-button">Load clean example ↗</button></div><label class="field-label" for="csv-input">Paste demo rows</label><textarea id="csv-input" rows="9" spellcheck="false" maxlength="20000">sku,quantity,unit_price
+KITE-01,3,49.90
+MOSS-02,2,18.75
+LUMA-03,0,79.00
+UNKNOWN,1,12.00</textarea><p class="help">Catalog: KITE-01 · MOSS-02 · LUMA-03<br>Try a negative price, fractional quantity, or unknown SKU.</p><button id="validate-csv" class="primary">Validate & preview <span>→</span></button><p id="quote-error" class="error" role="alert"></p></div><div class="card"><div class="card-heading"><h3>Review before export</h3><span id="quote-status" class="subtle">Waiting for validation</span></div><div id="quote-results" aria-live="polite"><div class="empty"><span>≡</span><h3>Every row accounted for.</h3><p>Valid rows get exact decimal totals. Invalid rows get an explanation.</p></div></div><div class="quote-footer"><div><small>VALID ROWS SUBTOTAL</small><strong id="quote-total">—</strong></div><button id="export-quote" class="secondary" disabled>Export JSON ↓</button></div><p class="limitation">Export is enabled only when every row passes. Demo estimates exclude tax and shipping. Nothing is billed or purchased.</p></div></div>
+</section>
+<section id="assistant" class="demo-panel" aria-labelledby="assistant-title" hidden>
+<div class="section-heading"><div><p class="eyebrow">03 / ASSISTANT WORKFLOW</p><h2 id="assistant-title">Answers you can trace.</h2><p>A question, an allowed tool, and the records behind the answer.</p></div><span class="pill">RULE-BASED DEMO · NO LIVE LLM</span></div>
+<div class="assistant-grid"><div class="card"><div class="card-heading"><h3>Operations desk</h3><span class="status-dot">Read-only</span></div><p class="field-label">Try a question</p><div class="suggestions"><button data-prompt="Which orders are blocked?">Which orders are blocked?</button><button data-prompt="Give me an order summary">Give me an order summary</button><button data-prompt="Delete DEMO-1001">Test a blocked action</button></div><form id="assistant-form"><label class="field-label" for="question">Your question</label><div class="question-row"><input id="question" maxlength="500" required value="Which orders are blocked?" autocomplete="off"><button class="primary" type="submit" aria-label="Run question">→</button></div></form><p id="assistant-error" class="error" role="alert"></p><div id="answer" class="answer" aria-live="polite"><span class="subtle">Run a question to see the answer and its evidence.</span></div><div id="order-cards" class="order-cards"></div></div><aside class="card"><div class="card-heading"><h3>Execution trace</h3><span class="subtle">Visible by design</span></div><div id="tool-trace" class="tool-trace"><div class="empty"><span>⌁</span><h3>No hidden steps.</h3><p>Inspect routing, tool selection, and returned evidence.</p></div></div><p class="limitation">This demonstrates the tool layer of an assistant. Routing is deterministic; it does not demonstrate language-model reasoning or production authorization.</p></aside></div>
+</section>
+</div>
+<footer><p>Built by <b>Miguel Moreno</b><span>Full-stack engineering · Cloud automation · AI workflows</span></p><p class="footer-note">100% fictional data. Local processing. No external APIs.</p></footer>
+</main></body></html>
